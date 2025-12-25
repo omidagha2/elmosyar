@@ -1,0 +1,93 @@
+.App {
+  text-align: center;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+@font-face {
+  font-family: "MyFont";
+  src: url("./assets/fonts/IRANYekanX-Medium.woff2") format("woff2"),
+       url("./assets/fonts/IRANYekanX-Medium.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+}
+
+* {
+  font-family: "MyFont", sans-serif;
+}
+
+.App {
+  text-align: center;
+}
+
+/* New layout styles */
+.app-content {
+  display: flex;
+  min-height: calc(100vh - 70px);
+}
+
+.main-content {
+  flex: 1;
+  transition: all 0.3s ease;
+  height: calc(100vh - 70px);
+  padding: 1rem;
+  overflow-y: auto;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.main-content.left-open {
+  margin-left: 240px;
+}
+
+.main-content.left-closed {
+  margin-left: 0;
+}
+
+.main-content.right-open {
+  margin-right: 240px;
+}
+
+.main-content.right-closed {
+  margin-right: 0;
+}
+
+/* Loading container */
+.loading-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-size: 1.2rem;
+  color: #666;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .app-content {
+    flex-direction: column;
+  }
+  
+  .main-content {
+    flex: 0;
+    padding: 0.5rem;
+    margin: 0 !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    padding-bottom: 80px; /* Extra bottom padding for mobile nav */
+    width: 100%;
+  }
+  
+  .sidebar,
+  .left-sidebar {
+    z-index: 100;
+    position: absolute;
+  }
+
+  .mobile-bottom-nav {
+    z-index: 0;
+  }
+}
