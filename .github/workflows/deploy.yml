@@ -1,5 +1,9 @@
 name: Deploy React App to GitHub Pages
 
+defaults:
+  run:
+    working-directory: frontend
+	
 on:
   push:
     branches: [main]
@@ -12,6 +16,7 @@ permissions:
 concurrency:
   group: "pages"
   cancel-in-progress: true
+  
 
 jobs:
   build:
@@ -20,6 +25,7 @@ jobs:
     steps:
       - name: Checkout repo
         uses: actions/checkout@v4
+		
 
       - name: Setup Node
         uses: actions/setup-node@v4
@@ -32,6 +38,7 @@ jobs:
 
       - name: Build project
         run: npm run build
+		
 
       - name: Upload build output
         uses: actions/upload-pages-artifact@v3
