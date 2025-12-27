@@ -7,7 +7,6 @@ import { postService } from '../../services/PostService';
 import { useFilters } from '../../contexts/FilterContext';
 import { FoodPostSearchProps } from '../../types/food_posts';
 
-
 const FoodPage: React.FC = () => {
 	const [foodItems, setFoodItems] = useState<FoodItem[]>([]);
 	const [loading, setLoading] = useState(true);
@@ -43,7 +42,7 @@ const FoodPage: React.FC = () => {
 				location: post_content_json.location,
 				date: post_content_json.date,
 				price: post_content_json.price,
-				isSoldOut: post_content_json.isSoldOut == "true",
+				isSoldOut: post_content_json.isSoldOut,
 			});
 		}
 

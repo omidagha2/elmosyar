@@ -11,25 +11,6 @@ interface Transaction {
   date: string;
 }
 
-// const mockTransactions: Transaction[] = [
-//   {
-//     id: '1',
-//     amount: 1250.00,
-//     title: '',
-//     user: 'Sarah Johnson',
-//     type: 'deposit',
-//     date: '2025-12-17',
-//   },
-//   {
-//     id: '2',
-//     amount: 85.50,
-//     title: '',
-//     user: 'Local Cafe',
-//     type: 'withdrawal',
-//     date: '2025-12-16',
-//   },
-// ];
-
 
 export default function TransactionHistoryPage() {
 	const [transactionHistory, setTransactionHistory] = useState<any[]>([]);

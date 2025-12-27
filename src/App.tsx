@@ -16,12 +16,15 @@ import DiscussionPage from './pages/Discussion/DiscussionPage';
 import FoodPage from './pages/FoodExchange/FoodPage';
 import VerifyEmail from './pages/VerifyEmail/VerifyEmail';
 import NotesPage from './pages/Notes/NotesPage';
+import PlannerPage from './pages/Planner/PlannerPage';
 import { LeftSidebar, RightSideBar } from './components/SideBars/SideBars';
 import { MobileBottomNav } from './components/SideBars/MobileBottomNav';
 import TransactionHistoryPage from './pages/TransactionHistory';
 import { ReviewPage } from './pages/Professors/Reviews';
 import { ProfessorProfilePage } from './pages/Professors/ProfessorProfile';
 import { CreateReviewPage } from './pages/Professors/CreateReview';
+import DiscussionPostForm from './components/Discussion/Posts/DiscussionPostForm';
+import AddFoodModal from './components/Transaction/AddFoodModal';
 
 // PostFeed wrapper components for different routes
 const TopicDiscussion: React.FC = () => {
@@ -161,6 +164,7 @@ const AppLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
 const ProtectedRoutes: React.FC = () => {
 	const { isAuthenticated } = useAuth();
 	const location = useLocation();
+	const navigate = useNavigate(); //!
 
 	if (!isAuthenticated) {
 		return <Navigate to="/login" state={{ from: location }} replace />;
@@ -170,6 +174,7 @@ const ProtectedRoutes: React.FC = () => {
 		<Routes>
 			<Route path='/' element={<Main />} />
 			<Route path='/notes' element={<NotesPage />} />
+			<Route path='/planner' element={<PlannerPage />} />
 			<Route path='/login' element={<RegisterPage />} />
 			<Route path='/profile' element={<ProfilePage />} />
 			<Route path='/profile/wallet' element={<WalletPage />} />
@@ -178,6 +183,16 @@ const ProtectedRoutes: React.FC = () => {
 			<Route path='/topic/:topicId' element={<TopicDiscussion />} />
 			<Route path='/topic/professors/:professorName' element={<ProfessorProfilePage />} />
 			<Route path='/topic/professors/new' element={<CreateReviewPage />} />
+			<Route path='/topic/discussion/new' element={<DiscussionPostForm
+				onClose={() => { }}
+				onSubmit={async (data) => { }} />
+			} />
+			<Route path='/topic/food/new' element={<AddFoodModal
+			isOpen = {true}
+			onClose={() => {navigate("/topic/food")}} //!
+			onAdd={() => {}}
+			 />} />
+
 		</Routes>
 	);
 };
@@ -194,7 +209,7 @@ const PublicRoutes: React.FC = () => {
 
 // Main App Content that uses authentication
 const AppContent: React.FC = () => {
-	const { isAuthenticated} = useAuth();
+	const { isAuthenticated } = useAuth();
 
 
 	return (

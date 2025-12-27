@@ -3,7 +3,7 @@ import { User, PenSquare, Phone, LogOut, Utensils, Star, MessageSquare } from 'l
 import { useNavigate, useLocation } from 'react-router-dom';
 import { logout } from '../../services/authService';
 import './SideBars.css';
-// import DiscussionPostForm from '../Discussion/Posts/DiscussionPostForm';
+import DiscussionPostForm from '../Discussion/Posts/DiscussionPostForm';
 
 // Types
 interface SideBarProps {
@@ -117,15 +117,15 @@ export const RightSideBar: React.FC<SideBarProps> = ({ isOpen = false }) => {
     switch(page) {
       case 'discussion':
         setShowDiscussionForm(true);
+		// navigate("/topic/discussion/new");
         break;
-      // case 'food':
-      //   setShowFoodForm(true);
-       // break;
-      // case 'teacher':
-      //   setShowTeacherForm(true);
-        //break;
+      case 'food':
+        navigate("/topic/food/new");
+       break;
+      case 'teacher':
+        navigate("/topic/professors/new");
+        break;
       default:
-       
         navigate('/discussion');
     }
   };
@@ -210,12 +210,12 @@ export const RightSideBar: React.FC<SideBarProps> = ({ isOpen = false }) => {
       </aside>
 
       {/* نمایش فرم بر اساس نوع */}
-      {/* {showDiscussionForm && (
+      {showDiscussionForm && (
         <DiscussionPostForm
           onClose={() => setShowDiscussionForm(false)}
           onSubmit={(data) => handleSubmitPost(data, 'discussion')}
         />
-      )} */}
+      )}
     </>
   );
 };
