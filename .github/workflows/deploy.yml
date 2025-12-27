@@ -3,7 +3,7 @@ name: Deploy React App to GitHub Pages
 defaults:
   run:
     working-directory: frontend
-	
+
 on:
   push:
     branches: [main]
@@ -35,6 +35,7 @@ jobs:
 
       - name: Install dependencies
         run: npm ci
+		
 
       - name: Build project
         run: npm run build
