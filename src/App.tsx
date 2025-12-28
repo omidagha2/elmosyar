@@ -221,7 +221,7 @@ const AppContent: React.FC = () => {
 
 function App() {
 	return (
-		<Router basename="/elmosyar">
+		<Router>
 			<AuthProvider>
 				<FilterProvider>
 					<AppContent />
