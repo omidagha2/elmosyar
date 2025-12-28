@@ -1,8 +1,8 @@
 // components/PostFeed.tsx
-import React, { useState, useEffect } from 'react';
-import { type PostFeedProps, type Post, type BackendPost, PostCardProps, PostActionsProps } from '../../../types/discussion_posts';
-import { postService, type GetPostsParams } from '../../../services/PostService';
-import { ThumbsUp, ThumbsDown, MessageCircle, X } from 'lucide-react'; 
+import React, { useState } from 'react';
+import { PostCardProps, PostActionsProps } from '../../../types/discussion_posts';
+// import { postService, type GetPostsParams } from '../../../services/PostService';
+import { ThumbsUp, ThumbsDown, MessageCircle } from 'lucide-react'; 
 import Comments from '../Comments/DiscussionComments';
 import { getCommentsForPost, getPostCard } from '../../../services/commentService';
 import './DiscussionPostFeed.css';

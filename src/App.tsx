@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
-import { BrowserRouter as Router, Routes, Route, useLocation, useNavigate, Navigate, useParams } from 'react-router-dom';
+import { HashRouter as Router, Routes, Route, useLocation, useNavigate, Navigate, useParams } from 'react-router-dom';
 import { AuthProvider } from './components/AuthProvider';
 import { FilterProvider } from './contexts/FilterContext';
 import { useAuth } from './contexts/AuthContext';
